@@ -99,12 +99,6 @@
                 <button class="cta-button">Book a Consultation</button>
             </div>
         </div>
-
-        <div class="floating-cards">
-            <div class="floating-card card-1"></div>
-            <div class="floating-card card-2"></div>
-            <div class="floating-card card-3"></div>
-        </div>
     </section>
 
     <!-- Services Section -->
@@ -113,6 +107,8 @@
         <div class="gradient-orb orb-service-2"></div>
         <div class="floating-card floating-service-1"></div>
         <div class="floating-card floating-service-2"></div>
+        <div class="floating-card floating-service-3"></div>
+        <div class="floating-card floating-service-4"></div>
         
         <div class="container">
             <h2 class="section-title">Our Services</h2>
@@ -164,6 +160,8 @@
         <div class="gradient-orb orb-partner-2"></div>
         <div class="floating-card floating-partner-1"></div>
         <div class="floating-card floating-partner-2"></div>
+        <div class="floating-card floating-partner-3"></div>
+        <div class="floating-card floating-partner-4"></div>
         
         <div class="container">
             <h2 class="section-title">Our Partners</h2>
@@ -223,34 +221,38 @@
         <div class="gradient-orb orb-contact-1"></div>
         <div class="gradient-orb orb-contact-2"></div>
         <div class="floating-card floating-contact-1"></div>
+        <div class="floating-card floating-contact-2"></div>
         
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="section-subtitle">We're ready to help with your legal needs</p>
-            
             <div class="contact-wrapper">
-                <div class="contact-info-wrapper">
-                    <div class="info-block">
-                        <div class="info-icon">📍</div>
-                        <h3>Address</h3>
-                        <p>123 Legal Avenue<br>New York, NY 10001<br>United States</p>
-                    </div>
+                <!-- Contact Info Section -->
+                <div class="contact-info-section">
+                    <h2 class="contact-section-heading">Get In Touch</h2>
+                    <p class="contact-section-subheading">We're ready to help with your legal needs</p>
+                    <div class="contact-info-wrapper">
+                        <div class="info-block">
+                            <div class="info-icon">📍</div>
+                            <h4>Address</h4>
+                            <p>123 Legal Avenue<br>New York, NY 10001<br>United States</p>
+                        </div>
 
-                    <div class="info-block">
-                        <div class="info-icon">📞</div>
-                        <h3>Phone</h3>
-                        <p><a href="tel:+12125551234">+1 (212) 555-1234</a><br>Available 9 AM - 6 PM EST</p>
-                    </div>
+                        <div class="info-block">
+                            <div class="info-icon">📞</div>
+                            <h4>Phone</h4>
+                            <p><a href="tel:+12125551234">+1 (212) 555-1234</a><br>Available 9 AM - 6 PM EST</p>
+                        </div>
 
-                    <div class="info-block">
-                        <div class="info-icon">✉️</div>
-                        <h3>Email</h3>
-                        <p><a href="mailto:info@premierlegal.com">info@premierlegal.com</a><br>We respond within 24 hours</p>
+                        <div class="info-block">
+                            <div class="info-icon">✉️</div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:info@premierlegal.com">info@premierlegal.com</a><br>We respond within 24 hours</p>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Quick Inquiry Form Section -->
                 <form class="contact-form">
-                    <h3 class="form-title">Send us a Message</h3>
+                    <h3 class="form-title">Quick Inquiry</h3>
                     <div class="form-group">
                         <label for="name">Full Name</label>
                         <input type="text" id="name" name="name" required placeholder="John Doe">
@@ -262,17 +264,17 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="company">Company Name</label>
-                        <input type="text" id="company" name="company" placeholder="Your Company">
-                    </div>
-
-                    <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required placeholder="Tell us about your legal needs..."></textarea>
+                        <textarea id="message" name="message" rows="4" required placeholder="Tell us about your legal needs..."></textarea>
                     </div>
 
                     <button type="submit" class="cta-button">Send Message</button>
                 </form>
+
+                <!-- Google Map Section - Full Width -->
+                <div class="contact-map-section">
+                    <iframe class="contact-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.1234567890!2d-74.0059728!3d40.7127753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a2d7d8f5d0d%3A0x1c4e8b5c5b5c5b5c!2s123%20Legal%20Avenue%2C%20New%20York%2C%20NY%2010001!5e0!3m2!1sen!2sus!4v1234567890" width="100%" height="400" style="border:0;border-radius:12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
             </div>
         </div>
     </section>
