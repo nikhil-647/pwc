@@ -1171,6 +1171,36 @@ body {
     resize: vertical;
 }
 
+.form-group select {
+    width: 100%;
+    padding: 1rem;
+    background-color: rgba(248, 250, 252, 0.05);
+    border: 1px solid rgba(234, 179, 8, 0.3);
+    border-radius: 8px;
+    color: var(--pure-alabaster);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.form-group select:hover {
+    border-color: var(--royal-gold);
+    background-color: rgba(248, 250, 252, 0.08);
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: var(--royal-gold);
+    box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.2), inset 0 0 10px rgba(234, 179, 8, 0.1);
+    transform: translateY(-2px);
+}
+
+.form-group select option {
+    background-color: #0F172A;
+    color: var(--pure-alabaster);
+}
+
 .contact-form .cta-button {
     margin-top: 0.5rem;
     animation: slide-up 0.6s ease-out 0.5s both;
@@ -1410,6 +1440,149 @@ body {
         width: 80px;
         height: 80px;
     }
+}
+
+/* ==================== About Section ==================== */
+.about {
+    position: relative;
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #0F172A 0%, #1a2744 100%);
+    overflow: hidden;
+}
+
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+    color: var(--pure-alabaster);
+    line-height: 1.8;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.subsection-title {
+    font-size: 1.8rem;
+    color: var(--royal-gold);
+    margin: 3rem 0 2rem 0;
+    text-align: center;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.value-card {
+    background: rgba(234, 179, 8, 0.1);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(234, 179, 8, 0.3);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.value-card:hover {
+    background: rgba(234, 179, 8, 0.15);
+    border-color: var(--royal-gold);
+    transform: translateY(-5px);
+}
+
+.value-card h4 {
+    color: var(--royal-gold);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.value-card p {
+    color: rgba(248, 250, 252, 0.8);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* ==================== Industries Section ==================== */
+.industries {
+    position: relative;
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #1a2744 0%, #0F172A 100%);
+    overflow: hidden;
+}
+
+.industries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.industry-card {
+    background: linear-gradient(135deg, rgba(234, 179, 8, 0.15), rgba(234, 179, 8, 0.05));
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(234, 179, 8, 0.3);
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.industry-card:hover {
+    background: linear-gradient(135deg, rgba(234, 179, 8, 0.2), rgba(234, 179, 8, 0.1));
+    border-color: var(--royal-gold);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(234, 179, 8, 0.2);
+}
+
+.industry-card h3 {
+    color: var(--pure-alabaster);
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* ==================== Team Card Styles ==================== */
+.partner-card {
+    background: linear-gradient(135deg, rgba(234, 179, 8, 0.1), rgba(234, 179, 8, 0.05));
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(234, 179, 8, 0.3);
+    transition: all 0.3s ease;
+}
+
+.partner-card:hover {
+    background: linear-gradient(135deg, rgba(234, 179, 8, 0.15), rgba(234, 179, 8, 0.08));
+    border-color: var(--royal-gold);
+    transform: translateY(-8px);
+}
+
+.partner-name {
+    color: var(--royal-gold);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.partner-credentials {
+    color: rgba(248, 250, 252, 0.7);
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+}
+
+.partner-title {
+    color: var(--royal-gold);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.partner-card p {
+    color: rgba(248, 250, 252, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
 }
 
 /* ==================== Smooth Scrollbar Styles ==================== */
