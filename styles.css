@@ -220,7 +220,7 @@ body {
 .navbar-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1rem 20px;
+    padding: 0.5rem 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -228,7 +228,7 @@ body {
 
 .logo {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 800;
     background: linear-gradient(135deg, var(--royal-gold), #d97706);
     -webkit-background-clip: text;
@@ -240,7 +240,7 @@ body {
 
 .logo-text {
     display: inline-block;
-    padding: 0.6rem 1.2rem;
+    padding: 0.4rem 1rem;
     border: 2px solid var(--royal-gold);
     border-radius: 6px;
     transition: all 0.3s ease;
