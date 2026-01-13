@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patil Wafekar Consultancy LLP - Financial & Advisory Services</title>
+    <!-- Google Fonts - Modern & Stylish -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,7 +17,12 @@
             <div class="logo">
                 <span class="logo-text">PWC</span>
             </div>
-            <ul class="nav-menu">
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#services" class="nav-link">Services</a></li>
@@ -78,25 +87,38 @@
                 <div class="chart-bar" style="height: 85%;"></div>
                 <div class="chart-bar" style="height: 70%;"></div>
             </div>
-
-            <!-- Animated Line Chart -->
-            <div class="line-chart chart-right">
-                <svg viewBox="0 0 300 150" class="chart-svg">
-                    <polyline points="10,120 60,80 110,100 160,50 210,70 260,20" class="chart-line"/>
-                    <circle cx="10" cy="120" r="4" class="chart-point"/>
-                    <circle cx="60" cy="80" r="4" class="chart-point"/>
-                    <circle cx="110" cy="100" r="4" class="chart-point"/>
-                    <circle cx="160" cy="50" r="4" class="chart-point"/>
-                    <circle cx="210" cy="70" r="4" class="chart-point"/>
-                    <circle cx="260" cy="20" r="4" class="chart-point"/>
-                </svg>
-            </div>
         </div>
 
         <div class="hero-content">
             <div class="hero-text-wrapper">
                 <h1 class="hero-title">Patil Wafekar Consultancy LLP</h1>
                 <p class="hero-subtitle">Professional Excellence • Integrity • Client-Focused Approach</p>
+                
+                <!-- Mobile-only additional content -->
+                <div class="hero-mobile-content">
+                    <div class="mobile-feature">
+                        <span class="feature-icon">🎯</span>
+                        <div class="feature-text">
+                            <strong>Expert CA Services</strong>
+                            <p>Comprehensive financial solutions tailored to your needs</p>
+                        </div>
+                    </div>
+                    <div class="mobile-feature">
+                        <span class="feature-icon">⚡</span>
+                        <div class="feature-text">
+                            <strong>Quick & Reliable</strong>
+                            <p>Fast turnaround with 100% accuracy guaranteed</p>
+                        </div>
+                    </div>
+                    <div class="mobile-feature">
+                        <span class="feature-icon">🤝</span>
+                        <div class="feature-text">
+                            <strong>Trusted by 1000+</strong>
+                            <p>Serving individuals and businesses across India</p>
+                        </div>
+                    </div>
+                </div>
+                
                 <button class="cta-button">Get Your Free Consultation</button>
             </div>
         </div>
@@ -114,7 +136,7 @@
             <div class="about-content">
                 <p>We are a modern professional services firm committed to delivering professional, timely, and practical financial solutions to individuals, startups, SMEs, and corporates. With a strong foundation in accounting, auditing, taxation, and financial advisory, we help our clients navigate the complexities of finance with confidence and clarity.</p>
                 
-                <h3 class="subsection-title">Our Core Values</h3>
+                <h4 class="subsection-title">Our Core Values</h4>
                 <div class="values-grid">
                     <div class="value-card">
                         <h4>Professional Excellence</h4>
@@ -197,30 +219,39 @@
             
             <div class="industries-grid">
                 <div class="industry-card">
+                    <div class="industry-icon">🚀</div>
                     <h3>Startups & Tech Companies</h3>
                 </div>
                 <div class="industry-card">
+                    <div class="industry-icon">💼</div>
                     <h3>Professionals & Freelancers</h3>
                 </div>
                 <div class="industry-card">
+                    <div class="industry-icon">💊</div>
                     <h3>Pharma Sector</h3>
                 </div>
                 <div class="industry-card">
+                    <div class="industry-icon">🌾</div>
                     <h3>Agriculture & Agribusiness</h3>
                 </div>
                 <div class="industry-card">
+                    <div class="industry-icon">🏭</div>
                     <h3>Manufacturing & Trading</h3>
                 </div>
                 <div class="industry-card">
+                    <div class="industry-icon">🏗️</div>
                     <h3>Real Estate & Construction</h3>
                 </div>
                 <div class="industry-card">
+                    <div class="industry-icon">🤝</div>
                     <h3>Societies, NGOs & Trusts</h3>
                 </div>
                 <div class="industry-card">
+                    <div class="industry-icon">⚙️</div>
                     <h3>Service Sector Firms</h3>
                 </div>
                 <div class="industry-card">
+                    <div class="industry-icon">🏦</div>
                     <h3>Banking & Finance Sector</h3>
                 </div>
             </div>
@@ -276,8 +307,6 @@
     <section id="contact" class="contact">
         <div class="gradient-orb orb-contact-1"></div>
         <div class="gradient-orb orb-contact-2"></div>
-        <div class="floating-card floating-contact-1"></div>
-        <div class="floating-card floating-contact-2"></div>
         
         <div class="container">
             <div class="contact-wrapper">
@@ -305,9 +334,9 @@
                         </div>
 
                         <div class="info-block">
-                            <div class="info-icon">🌐</div>
-                            <h4>Website</h4>
-                            <p><a href="https://www.pwcoindia.com" target="_blank">www.pwcoindia.com</a></p>
+                            <div class="info-icon">💼</div>
+                            <h4>LinkedIn</h4>
+                            <p><a href="https://www.linkedin.com/company/patil-wafekar-co-llp/" target="_blank">Patil Wafekar & Co LLP</a></p>
                         </div>
                     </div>
                 </div>
@@ -383,7 +412,7 @@
                     <ul>
                         <li><a href="tel:+918149545778">+91 8149545778</a></li>
                         <li><a href="mailto:patilwafekar@gmail.com">patilwafekar@gmail.com</a></li>
-                        <li><a href="https://www.pwcoindia.com" target="_blank">www.pwcoindia.com</a></li>
+                        <li><a href="https://www.linkedin.com/company/patil-wafekar-co-llp/" target="_blank">LinkedIn</a></li>
                     </ul>
                 </div>
             </div>
@@ -396,7 +425,56 @@
                     <a href="#">Cookie Policy</a>
                 </div>
             </div>
+            
+            <div class="footer-credit">
+                <p>Designed & Developed by <a href="https://www.linkedin.com/in/nikhil-patil-847295186/" target="_blank" rel="noopener noreferrer">Nikhil Patil</a></p>
+            </div>
         </div>
     </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    const navHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = targetSection.offsetTop - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
