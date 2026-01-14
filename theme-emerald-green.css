@@ -1,0 +1,73 @@
+/* ==================== Emerald Green Theme ==================== */
+/* Fresh and professional green theme symbolizing growth and prosperity */
+
+:root {
+    /* Primary Colors */
+    --primary-dark: #064E3B;
+    --primary-light: #F0FDF4;
+    --accent-primary: #10B981;
+    --accent-secondary: #6EE7B7;
+    
+    /* Text Colors */
+    --text-primary: #064E3B;
+    --text-secondary: #475569;
+    --text-light: #94A3B8;
+    --text-on-dark: #F0FDF4;
+    
+    /* Background Colors */
+    --bg-primary: #F0FDF4;
+    --bg-secondary: #DCFCE7;
+    --bg-dark: #064E3B;
+    --bg-card: #FFFFFF;
+    
+    /* Gradient Colors */
+    --gradient-start: #10B981;
+    --gradient-mid: #059669;
+    --gradient-end: #047857;
+    
+    /* Glass Effect */
+    --glass-bg: rgba(220, 252, 231, 0.1);
+    --glass-border: rgba(167, 243, 208, 0.2);
+    --glass-border-light: rgba(167, 243, 208, 0.5);
+    
+    /* Hover States */
+    --hover-overlay: rgba(16, 185, 129, 0.1);
+    --hover-border: #10B981;
+    
+    /* Shadow Colors */
+    --shadow-light: rgba(6, 78, 59, 0.05);
+    --shadow-medium: rgba(6, 78, 59, 0.1);
+    --shadow-dark: rgba(6, 78, 59, 0.2);
+    
+    /* Status Colors */
+    --success: #10B981;
+    --warning: #F59E0B;
+    --error: #EF4444;
+    --info: #10B981;
+    
+    /* CA Element Colors */
+    --tax-card-bg: linear-gradient(135deg, #10B981, #059669);
+    --report-card-bg: linear-gradient(135deg, #14B8A6, #0D9488);
+    --gst-card-bg: linear-gradient(135deg, #22C55E, #16A34A);
+    --audit-card-bg: linear-gradient(135deg, #059669, #047857);
+    
+    /* Navbar Colors */
+    --navbar-bg-start: #F0FDF4;
+    --navbar-bg-end: #DCFCE7;
+    --navbar-shadow: rgba(6, 78, 59, 0.1);
+    
+    /* Button Colors */
+    --btn-primary-bg: linear-gradient(135deg, #10B981, #059669);
+    --btn-primary-hover: linear-gradient(135deg, #059669, #047857);
+    --btn-text: #FFFFFF;
+    
+    /* Orb Colors */
+    --orb-1: radial-gradient(circle at center, rgba(16, 185, 129, 0.15), transparent 70%);
+    --orb-2: radial-gradient(circle at center, rgba(5, 150, 105, 0.12), transparent 70%);
+    --orb-3: radial-gradient(circle at center, rgba(4, 120, 87, 0.1), transparent 70%);
+    
+    /* Section Background Colors */
+    --section-bg-1: #052e23;
+    --section-bg-2: #064E3B;
+    --section-bg-3: #065f46;
+}

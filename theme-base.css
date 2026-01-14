@@ -1,0 +1,73 @@
+/* ==================== Base Color Variables ==================== */
+/* This file contains all color variables that can be overridden by theme files */
+
+:root {
+    /* Primary Colors */
+    --primary-dark: #0F172A;
+    --primary-light: #F8FAFC;
+    --accent-primary: #EAB308;
+    --accent-secondary: #FEF08A;
+    
+    /* Text Colors */
+    --text-primary: #0F172A;
+    --text-secondary: #64748B;
+    --text-light: #94A3B8;
+    --text-on-dark: #F8FAFC;
+    
+    /* Background Colors */
+    --bg-primary: #F8FAFC;
+    --bg-secondary: #F1F5F9;
+    --bg-dark: #0F172A;
+    --bg-card: #FFFFFF;
+    
+    /* Gradient Colors */
+    --gradient-start: #EAB308;
+    --gradient-mid: #F59E0B;
+    --gradient-end: #DC2626;
+    
+    /* Glass Effect */
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(226, 232, 240, 0.2);
+    --glass-border-light: rgba(226, 232, 240, 0.5);
+    
+    /* Hover States */
+    --hover-overlay: rgba(234, 179, 8, 0.1);
+    --hover-border: #EAB308;
+    
+    /* Shadow Colors */
+    --shadow-light: rgba(15, 23, 42, 0.05);
+    --shadow-medium: rgba(15, 23, 42, 0.1);
+    --shadow-dark: rgba(15, 23, 42, 0.2);
+    
+    /* Status Colors */
+    --success: #10B981;
+    --warning: #F59E0B;
+    --error: #EF4444;
+    --info: #EAB308;
+    
+    /* CA Element Colors */
+    --tax-card-bg: linear-gradient(135deg, #EAB308, #F59E0B);
+    --report-card-bg: linear-gradient(135deg, #10B981, #059669);
+    --gst-card-bg: linear-gradient(135deg, #F59E0B, #D97706);
+    --audit-card-bg: linear-gradient(135deg, #FB923C, #F97316);
+    
+    /* Navbar Colors */
+    --navbar-bg-start: #F8FAFC;
+    --navbar-bg-end: #F0F4F8;
+    --navbar-shadow: rgba(15, 23, 42, 0.1);
+    
+    /* Button Colors */
+    --btn-primary-bg: linear-gradient(135deg, #EAB308, #F59E0B);
+    --btn-primary-hover: linear-gradient(135deg, #F59E0B, #DC2626);
+    --btn-text: #0F172A;
+    
+    /* Orb Colors */
+    --orb-1: radial-gradient(circle at center, rgba(234, 179, 8, 0.15), transparent 70%);
+    --orb-2: radial-gradient(circle at center, rgba(245, 158, 11, 0.12), transparent 70%);
+    --orb-3: radial-gradient(circle at center, rgba(239, 68, 68, 0.1), transparent 70%);
+    
+    /* Section Background Colors */
+    --section-bg-1: #0a0f1a;
+    --section-bg-2: #0F172A;
+    --section-bg-3: #1e293b;
+}
