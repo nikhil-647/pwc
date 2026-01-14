@@ -2,17 +2,17 @@
 /* Fresh and clean light color palette with soft pastels */
 
 :root {
-    /* Primary Colors - Soft milky white and grey tones */
-    --primary-dark: #FAFAF9;
-    --primary-light: #1E293B;
-    --accent-primary: #3B82F6;
-    --accent-secondary: #93C5FD;
+    /* Primary Colors - Proper light theme colors */
+    --primary-dark: #0F172A;
+    --primary-light: #F8FAFC;
+    --accent-primary: #2563EB;
+    --accent-secondary: #60A5FA;
     
-    /* Text Colors - Dark text on light background */
-    --text-primary: #1E293B;
-    --text-secondary: #475569;
-    --text-light: #64748B;
-    --text-on-dark: #1E293B;
+    /* Text Colors - High contrast dark text on light background */
+    --text-primary: #0F172A;
+    --text-secondary: #334155;
+    --text-light: #475569;
+    --text-on-dark: #FFFFFF;
     
     /* Background Colors - Milky and grey whites */
     --bg-primary: #FAFAF9;
