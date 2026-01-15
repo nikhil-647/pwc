@@ -3,515 +3,592 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PWC - Theme Selector</title>
+    <title>Patil Wafekar Consultancy LLP - Professional CA & Financial Services</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Outfit', sans-serif;
-            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
-
-        .container {
-            max-width: 1400px;
-            width: 100%;
-        }
-
-        h1 {
-            text-align: center;
-            color: #F8FAFC;
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-        }
-
-        .subtitle {
-            text-align: center;
-            color: #94A3B8;
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-        }
-
-        .themes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .theme-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .theme-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--theme-gradient);
-        }
-
-        .theme-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .theme-name {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #F8FAFC;
-        }
-
-        .theme-description {
-            color: #94A3B8;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        .color-palette {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .color-swatch {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .theme-link {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background: var(--theme-gradient);
-            color: #FFFFFF;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .theme-link:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-        }
-
-        .theme-checkbox {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-            cursor: pointer;
-        }
-
-        .theme-checkbox input[type="checkbox"] {
-            width: 24px;
-            height: 24px;
-            cursor: pointer;
-            accent-color: #EAB308;
-        }
-
-        .theme-checkbox label {
-            color: #F8FAFC;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-        }
-
-        .theme-card.selected {
-            border-color: #EAB308;
-            box-shadow: 0 0 20px rgba(234, 179, 8, 0.4);
-        }
-
-        .action-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .action-button {
-            flex: 1;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-            font-size: 1rem;
-        }
-
-        .view-button {
-            background: var(--theme-gradient);
-            color: #FFFFFF;
-        }
-
-        .view-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-        }
-
-        .view-button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .selection-info {
-            color: #F8FAFC;
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        .control-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .control-btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.1);
-            color: #F8FAFC;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .control-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: #EAB308;
-        }
-
-        .compare-btn {
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            background: linear-gradient(135deg, #EAB308, #F59E0B);
-            color: #FFFFFF;
-            border: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .compare-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 24px rgba(234, 179, 8, 0.5);
-        }
-
-        .compare-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        /* Base Theme (Gold/Yellow) */
-        .theme-card.base {
-            --theme-gradient: linear-gradient(135deg, #EAB308, #F59E0B);
-        }
-
-        /* Ocean Blue Theme */
-        .theme-card.ocean-blue {
-            --theme-gradient: linear-gradient(135deg, #0EA5E9, #0284C7);
-        }
-
-        /* Emerald Green Theme */
-        .theme-card.emerald-green {
-            --theme-gradient: linear-gradient(135deg, #10B981, #059669);
-        }
-
-        /* Royal Purple Theme */
-        .theme-card.royal-purple {
-            --theme-gradient: linear-gradient(135deg, #A855F7, #9333EA);
-        }
-
-        /* Crimson Red Theme */
-        .theme-card.crimson-red {
-            --theme-gradient: linear-gradient(135deg, #EF4444, #DC2626);
-        }
-
-        /* Midnight Navy Theme */
-        .theme-card.midnight-navy {
-            --theme-gradient: linear-gradient(135deg, #60A5FA, #3B82F6);
-        }
-
-        /* Light Theme */
-        .theme-card.light {
-            --theme-gradient: linear-gradient(135deg, #93C5FD, #60A5FA);
-        }
-
-        .info-section {
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            color: #94A3B8;
-        }
-
-        .info-section h2 {
-            color: #F8FAFC;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .info-section p {
-            line-height: 1.8;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            .subtitle {
-                font-size: 1rem;
-            }
-
-            .themes-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>🎨 PWC Theme Selector</h1>
-        <p class="subtitle">Choose multiple themes to compare or select one to view</p>
+    <!-- Fixed Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="images/logo.jpg" alt="CA India Logo" width="65" height="65" style="object-fit: contain;">
+                </div>
+                <div class="logo-text-container">
+                    <span class="logo-text">Patil Wafekar & Co LLP</span>
+                    <span class="logo-subtitle">Chartered Accountants</span>
+                </div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#partners" class="nav-link">Team</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        <div class="themes-grid">
-            <!-- Base Theme (Gold/Yellow) -->
-            <div class="theme-card base" data-theme="base" data-url="index-base.html">
-                <div class="theme-checkbox">
-                    <input type="checkbox" id="theme-base" onchange="updateSelection()">
-                    <label for="theme-base">💛 Base Gold Theme</label>
-                </div>
-                <div class="theme-description">Professional gold and yellow palette symbolizing prosperity and trust</div>
-                <div class="color-palette">
-                    <div class="color-swatch" style="background: #0F172A;"></div>
-                    <div class="color-swatch" style="background: #F8FAFC;"></div>
-                    <div class="color-swatch" style="background: #EAB308;"></div>
-                    <div class="color-swatch" style="background: #FEF08A;"></div>
-                </div>
-                <div class="action-buttons">
-                    <a href="index-base.html" class="action-button view-button">View Theme →</a>
+    <!-- Hero Banner Slider Section -->
+    <section id="home" class="hero-slider">
+        <div class="slider-container">
+            <!-- Slide 1 -->
+            <div class="slide active">
+                <div class="slide-image" style="background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2400&auto=format&fit=crop');"></div>
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <div class="banner-badge">
+                        <span class="badge-icon">🏆</span>
+                        <span class="badge-text">Trusted by 1000+ Clients Across India</span>
+                    </div>
+                    <h1 class="slide-title">Expert Chartered Accountant Services</h1>
+                    <p class="slide-description">Professional Excellence • Integrity • Client-Focused Approach</p>
+                    <button class="cta-button">Get Your Free Consultation</button>
                 </div>
             </div>
 
-            <!-- Ocean Blue Theme -->
-            <div class="theme-card ocean-blue" data-theme="ocean-blue" data-url="index-ocean-blue.html">
-                <div class="theme-checkbox">
-                    <input type="checkbox" id="theme-ocean-blue" onchange="updateSelection()">
-                    <label for="theme-ocean-blue">💙 Ocean Blue Theme</label>
-                </div>
-                <div class="theme-description">Professional blue theme inspired by ocean and sky, representing trust and stability</div>
-                <div class="color-palette">
-                    <div class="color-swatch" style="background: #0C4A6E;"></div>
-                    <div class="color-swatch" style="background: #F0F9FF;"></div>
-                    <div class="color-swatch" style="background: #0EA5E9;"></div>
-                    <div class="color-swatch" style="background: #7DD3FC;"></div>
-                </div>
-                <div class="action-buttons">
-                    <a href="index-ocean-blue.html" class="action-button view-button">View Theme →</a>
+            <!-- Slide 2 -->
+            <div class="slide">
+                <div class="slide-image" style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2400&auto=format&fit=crop');"></div>
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <div class="banner-badge">
+                        <span class="badge-icon">💼</span>
+                        <span class="badge-text">25+ Years of Combined Experience</span>
+                    </div>
+                    <h1 class="slide-title">Comprehensive Financial Solutions</h1>
+                    <p class="slide-description">Accounting • Auditing • Taxation • Advisory</p>
+                    <button class="cta-button">Explore Our Services</button>
                 </div>
             </div>
 
-            <!-- Emerald Green Theme -->
-            <div class="theme-card emerald-green" data-theme="emerald-green" data-url="index-emerald-green.html">
-                <div class="theme-checkbox">
-                    <input type="checkbox" id="theme-emerald-green" onchange="updateSelection()">
-                    <label for="theme-emerald-green">💚 Emerald Green Theme</label>
-                </div>
-                <div class="theme-description">Fresh green palette symbolizing growth, prosperity, and financial success</div>
-                <div class="color-palette">
-                    <div class="color-swatch" style="background: #064E3B;"></div>
-                    <div class="color-swatch" style="background: #F0FDF4;"></div>
-                    <div class="color-swatch" style="background: #10B981;"></div>
-                    <div class="color-swatch" style="background: #6EE7B7;"></div>
-                </div>
-                <div class="action-buttons">
-                    <a href="index-emerald-green.html" class="action-button view-button">View Theme →</a>
+            <!-- Slide 3 -->
+            <div class="slide">
+                <div class="slide-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2400&auto=format&fit=crop');"></div>
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <div class="banner-badge">
+                        <span class="badge-icon">⚡</span>
+                        <span class="badge-text">Fast & Reliable Services</span>
+                    </div>
+                    <h1 class="slide-title">Patil Wafekar Consultancy LLP</h1>
+                    <p class="slide-description">Your Trusted Partner for Business Growth & Compliance</p>
+                    <button class="cta-button">Contact Us Today</button>
                 </div>
             </div>
 
-            <!-- Royal Purple Theme -->
-            <div class="theme-card royal-purple" data-theme="royal-purple" data-url="index-royal-purple.html">
-                <div class="theme-checkbox">
-                    <input type="checkbox" id="theme-royal-purple" onchange="updateSelection()">
-                    <label for="theme-royal-purple">💜 Royal Purple Theme</label>
-                </div>
-                <div class="theme-description">Luxurious purple representing premium services and sophistication</div>
-                <div class="color-palette">
-                    <div class="color-swatch" style="background: #581C87;"></div>
-                    <div class="color-swatch" style="background: #FAF5FF;"></div>
-                    <div class="color-swatch" style="background: #A855F7;"></div>
-                    <div class="color-swatch" style="background: #D8B4FE;"></div>
-                </div>
-                <div class="action-buttons">
-                    <a href="index-royal-purple.html" class="action-button view-button">View Theme →</a>
-                </div>
-            </div>
+            <!-- Navigation Arrows -->
+            <button class="slider-arrow prev" aria-label="Previous slide">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+            </button>
+            <button class="slider-arrow next" aria-label="Next slide">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </button>
 
-            <!-- Crimson Red Theme -->
-            <div class="theme-card crimson-red" data-theme="crimson-red" data-url="index-crimson-red.html">
-                <div class="theme-checkbox">
-                    <input type="checkbox" id="theme-crimson-red" onchange="updateSelection()">
-                    <label for="theme-crimson-red">❤️ Crimson Red Theme</label>
-                </div>
-                <div class="theme-description">Bold red theme representing strength, confidence, and reliability</div>
-                <div class="color-palette">
-                    <div class="color-swatch" style="background: #7F1D1D;"></div>
-                    <div class="color-swatch" style="background: #FEF2F2;"></div>
-                    <div class="color-swatch" style="background: #EF4444;"></div>
-                    <div class="color-swatch" style="background: #FCA5A5;"></div>
-                </div>
-                <div class="action-buttons">
-                    <a href="index-crimson-red.html" class="action-button view-button">View Theme →</a>
-                </div>
+            <!-- Slider Indicators -->
+            <div class="slider-indicators">
+                <button class="indicator active" data-slide="0" aria-label="Go to slide 1"></button>
+                <button class="indicator" data-slide="1" aria-label="Go to slide 2"></button>
+                <button class="indicator" data-slide="2" aria-label="Go to slide 3"></button>
             </div>
+        </div>
+    </section>
 
-            <!-- Midnight Navy Theme -->
-            <div class="theme-card midnight-navy" data-theme="midnight-navy" data-url="index-midnight-navy.html">
-                <div class="theme-checkbox">
-                    <input type="checkbox" id="theme-midnight-navy" onchange="updateSelection()">
-                    <label for="theme-midnight-navy">🌌 Midnight Navy Theme</label>
-                </div>
-                <div class="theme-description">Deep navy with silver accents for sophisticated corporate presence</div>
-                <div class="color-palette">
-                    <div class="color-swatch" style="background: #1E293B;"></div>
-                    <div class="color-swatch" style="background: #F8FAFC;"></div>
-                    <div class="color-swatch" style="background: #60A5FA;"></div>
-                    <div class="color-swatch" style="background: #BFDBFE;"></div>
-                </div>
-                <div class="action-buttons">
-                    <a href="index-midnight-navy.html" class="action-button view-button">View Theme →</a>
-                </div>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Who we are?</h2>
+            <p class="section-subtitle">A modern professional services firm committed to excellence</p>
+            
+            <div class="about-content">
+                <p>We are a modern professional services firm committed to delivering high-quality, timely, and pragmatic financial solutions to individuals, startups, SMEs, and large corporates. Anchored by deep domain expertise in accounting, auditing, taxation, and financial advisory, we enable our clients to effectively navigate complex financial, regulatory, and compliance landscapes with confidence and clarity.</p>
+                
+                <p>Backed by a cumulative professional experience of over 25 years, the Partners operate through two distinct yet synergistic entities: Patil Wafekar & Co. LLP, Chartered Accountants, and Patil Wafekar Consultancy LLP.</p>
+                
+                <p>Our core values are founded on Professional Excellence, Integrity, and a Client-First Philosophy. We adopt a solution-driven and risk-aligned approach, leveraging technology-enabled workflows, robust governance frameworks, and data-driven insights to deliver value-centric outcomes, support informed decision-making, and drive long-term sustainable growth for our clients.</p>
             </div>
+        </div>
+    </section>
 
-            <!-- Light Theme -->
-            <div class="theme-card light" data-theme="light" data-url="index-light.html">
-                <div class="theme-checkbox">
-                    <input type="checkbox" id="theme-light" onchange="updateSelection()">
-                    <label for="theme-light">☀️ Light Grey Theme</label>
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Comprehensive financial and advisory solutions</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>Audit & Support Functions</h3>
+                    <p>Statutory Audit • Tax Audit • Internal Audit • Concurrent Audit • Stock Audit</p>
                 </div>
-                <div class="theme-description">Soft milky white and grey tones with blue accents for comfortable viewing</div>
-                <div class="color-palette">
-                    <div class="color-swatch" style="background: #FAFAF9;"></div>
-                    <div class="color-swatch" style="background: #1E293B;"></div>
-                    <div class="color-swatch" style="background: #3B82F6;"></div>
-                    <div class="color-swatch" style="background: #93C5FD;"></div>
+
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Accounting & Bookkeeping</h3>
+                    <p>Monthly/Quarterly/Annual Bookkeeping • Financial Statements • MIS Reporting • Management Accounting</p>
                 </div>
-                <div class="action-buttons">
-                    <a href="index-light.html" class="action-button view-button">View Theme →</a>
+
+                <div class="service-card">
+                    <div class="service-icon">💰</div>
+                    <h3>Taxation Services</h3>
+                    <p>Income Tax Return Filing • GST Advisory • TDS Compliance • Tax Planning & Optimization</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>Business Advisory & Virtual CFO</h3>
+                    <p>Budgeting & Forecasting • Financial Planning • Strategic Advisory • Business Intelligence</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">✅</div>
+                    <h3>Value-Added Services</h3>
+                    <p>Financial Analysis • Process Improvement • Risk Assessment • Compliance Monitoring</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Compliance & Regulatory</h3>
+                    <p>ROC Filings • Company Incorporation • Trademark/Patent Registration • Corporate Governance</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="info-section">
-            <h2>📚 Implementation Guide</h2>
-            <p>Each theme has its own HTML file and theme CSS file. The system uses CSS variables that are overridden by each theme file, making it easy to maintain and customize. All themes share the same website structure and functionality - only colors change!</p>
-            <br>
-            <p><strong>Files Structure:</strong></p>
-            <p>• <code>theme-base.css</code> - Base color variables<br>
-            • <code>theme-{name}.css</code> - Theme-specific colors<br>
-            • <code>index-{name}.html</code> - Theme HTML templates<br>
-            • <code>styles.css</code> - Main styling (uses variables)</p>
+    <!-- Industries Section -->
+    <section id="industries" class="industries">
+        <div class="container">
+            <h2 class="section-title">Industries We Serve</h2>
+            <p class="section-subtitle">Serving diverse sectors with specialized expertise</p>
+            
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <div class="industry-icon">🚀</div>
+                    <!-- Optional: Add image instead of icon -->
+                    <!-- <img src="path/to/startup-icon.png" alt="Startups & Tech"> -->
+                    <h3>Startups & Tech Companies</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">💼</div>
+                    <!-- Optional: Add image instead of icon -->
+                    <!-- <img src="path/to/professionals-icon.png" alt="Professionals"> -->
+                    <h3>Professionals & Freelancers</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">💊</div>
+                    <!-- Optional: Add image instead of icon -->
+                    <!-- <img src="path/to/pharma-icon.png" alt="Pharma"> -->
+                    <h3>Pharma Sector</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">🌾</div>
+                    <h3>Agriculture & Agribusiness</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">🏭</div>
+                    <h3>Manufacturing & Trading</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">🏗️</div>
+                    <h3>Real Estate & Construction</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">🤝</div>
+                    <h3>Societies, NGOs & Trusts</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">⚙️</div>
+                    <h3>Service Sector Firms</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">🏦</div>
+                    <h3>Banking & Finance Sector</h3>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Partners/Team Section -->
+    <section id="partners" class="partners">
+        <div class="container">
+            <h2 class="section-title">Our Managing Team</h2>
+            <p class="section-subtitle">Experienced professionals committed to your success</p>
+            
+            <div class="partners-grid">
+
+                <div class="partner-card">
+                    <img src="https://ui-avatars.com/api/?name=Dravesh+K+Wafekar&size=300&background=2563EB&color=ffffff&bold=true" alt="CA Dravesh K. Wafekar" class="partner-image">
+                    <div class="partner-name">CA Dravesh K. Wafekar</div>
+                    <div class="partner-credentials">ACA, B-Com</div>
+                    <div class="partner-title">Partner – Patil Wafekar & Co LLP</div>
+                    <p>Qualified Chartered Accountant specializing in Statutory and Tax Audits, Accounting, and ROC compliance. Expert in project reports for loan financing with analytical and regulatory expertise.</p>
+                    <a href="https://www.linkedin.com/in/dravesh-wafekar/" target="_blank" rel="noopener noreferrer" class="partner-linkedin">View LinkedIn Profile →</a>
+                </div>
+                
+
+                <div class="partner-card">
+                    <img src="https://ui-avatars.com/api/?name=Tushar+G+Patil&size=300&background=2563EB&color=ffffff&bold=true" alt="CA Tushar G. Patil" class="partner-image">
+                    <div class="partner-name">CA Tushar G. Patil</div>
+                    <div class="partner-credentials">ACA, B-Com</div>
+                    <div class="partner-title">Partner – Patil Wafekar & Co LLP</div>
+                    <p>Qualified Chartered Accountant with extensive experience in Virtual CFO advisory, statutory audits, and internal audits. Diversified exposure in Accounting, Auditing, Taxation, and Advisory services.</p>
+                    <a href="https://www.linkedin.com/in/tushar-patil-6397aa231/" target="_blank" rel="noopener noreferrer" class="partner-linkedin">View LinkedIn Profile →</a>
+                </div>
+
+                <div class="partner-card">
+                    <img src="https://ui-avatars.com/api/?name=Harshal+R+Patil&size=300&background=2563EB&color=ffffff&bold=true" alt="Harshal R. Patil" class="partner-image">
+                    <div class="partner-name">Harshal R. Patil</div>
+                    <div class="partner-credentials">CA-INTER, LLB-GEN, IICA Certified Independent Director, ZOHO Certified Partner, B-Com</div>
+                    <div class="partner-title">Partner – Patil Wafekar Consultancy LLP</div>
+                    <p>Seasoned finance professional with 5+ years of experience in Taxation, Accounting, Auditing, Financial Reporting, and Virtual CFO advisory. Contributed to RBL Bank, Aditya Birla Group, and leading CA firms.</p>
+                    <a href="https://www.linkedin.com/in/harshal-r-patil-57764a180/" target="_blank" rel="noopener noreferrer" class="partner-linkedin">View LinkedIn Profile →</a>
+                </div>
+
+                
+
+                <div class="partner-card">
+                    <img src="https://ui-avatars.com/api/?name=Bhushan+S+Khune&size=300&background=2563EB&color=ffffff&bold=true" alt="Bhushan S. Khune" class="partner-image">
+                    <div class="partner-name">Bhushan S. Khune</div>
+                    <div class="partner-credentials">CA-CPT, B-Com</div>
+                    <div class="partner-title">Partner – Patil Wafekar Consultancy LLP</div>
+                    <p>Finance and accounting professional with extensive experience in Accounting, Auditing, Taxation, Project Reports, and ROC Compliance. Worked with METRO subsidiary and leading CA firms.</p>
+                    <a href="https://www.linkedin.com/in/bhushan-khune-5a5645363/" target="_blank" rel="noopener noreferrer" class="partner-linkedin">View LinkedIn Profile →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countries Section -->
+    <section class="countries">
+        <div class="container">
+            <h2 class="section-title">Countries we serve</h2>
+            <div class="countries-grid">
+                <div class="country-card">
+                    <div class="country-flag">
+                        <img src="https://flagcdn.com/w160/us.png" alt="USA Flag" width="120" height="80">
+                    </div>
+                    <h3>USA</h3>
+                </div>
+                <div class="country-card">
+                    <div class="country-flag">
+                        <img src="https://flagcdn.com/w160/ca.png" alt="Canada Flag" width="120" height="80">
+                    </div>
+                    <h3>Canada</h3>
+                </div>
+                <div class="country-card">
+                    <div class="country-flag">
+                        <img src="https://flagcdn.com/w160/in.png" alt="India Flag" width="120" height="80">
+                    </div>
+                    <h3>India</h3>
+                </div>
+                <div class="country-card">
+                    <div class="country-flag">
+                        <img src="https://flagcdn.com/w160/gb.png" alt="UK Flag" width="120" height="80">
+                    </div>
+                    <h3>UK</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <!-- Contact Info Section -->
+                <div class="contact-info-section">
+                    <h2 class="contact-section-heading">Contact Us</h2>
+                    <p class="contact-section-subheading">Let's discuss how we can add value to your business</p>
+                    <div class="contact-info-wrapper">
+                        <div class="info-block">
+                            <div class="info-icon">📍</div>
+                            <h4>Office Address</h4>
+                            <p>301, Sonai Plaza, Kalher Bus Stop<br>Opp. Saibaba Mandir, Kalher<br>Bhiwandi, Thane, Maharashtra<br>India – 421302</p>
+                        </div>
+
+                        <div class="info-block">
+                            <div class="info-icon">📞</div>
+                            <h4>Phone</h4>
+                            <p><a href="tel:+918149545778">+91 8149545778</a><br>Monday - Friday, 9 AM - 6 PM</p>
+                        </div>
+
+                        <div class="info-block">
+                            <div class="info-icon">✉️</div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:patilwafekar@gmail.com">patilwafekar@gmail.com</a><br>We respond within 24 hours</p>
+                        </div>
+
+                        <div class="info-block">
+                            <div class="info-icon">💼</div>
+                            <h4>LinkedIn</h4>
+                            <p><a href="https://www.linkedin.com/company/patil-wafekar-co-llp/" target="_blank">Patil Wafekar & Co LLP</a></p>
+                            <p><a href="https://www.linkedin.com/company/patil-wafekar-consultancy-llp" target="_blank">Patil Wafekar Consultancy LLP</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Inquiry Form Section -->
+                <form class="contact-form">
+                    <h3 class="form-title">Quick Inquiry</h3>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Your Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="your@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Service Type</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="audit">Audit Services</option>
+                            <option value="accounting">Accounting & Bookkeeping</option>
+                            <option value="taxation">Taxation Services</option>
+                            <option value="advisory">Business Advisory</option>
+                            <option value="compliance">Compliance Services</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" required placeholder="Tell us about your financial needs..."></textarea>
+                    </div>
+
+                    <button type="submit" class="cta-button">Send Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2 class="section-title">Find Us</h2>
+            <div class="map-container">
+                <iframe 
+                    src="https://maps.google.com/maps?q=19.2482918,73.0175191&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    width="100%" 
+                    height="300" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Patil Wafekar Consultancy LLP</h4>
+                    <p>Delivering professional excellence in financial advisory and compliance services. Your trusted partner for financial solutions.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#partners">Team</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#services">Audit Services</a></li>
+                        <li><a href="#services">Accounting</a></li>
+                        <li><a href="#services">Taxation</a></li>
+                        <li><a href="#services">Business Advisory</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><a href="tel:+918149545778">+91 8149545778</a></li>
+                        <li><a href="mailto:patilwafekar@gmail.com">patilwafekar@gmail.com</a></li>
+                        <li><a href="https://www.linkedin.com/company/patil-wafekar-co-llp/" target="_blank">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Patil Wafekar Consultancy LLP. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+            
+            <div class="footer-credit">
+                <p>Designed & Developed by <a href="https://www.linkedin.com/in/nikhil-patil-847295186/" target="_blank" rel="noopener noreferrer">Nikhil Patil</a></p>
+            </div>
+        </div>
+    </footer>
 
     <script>
-        function updateSelection() {
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            const cards = document.querySelectorAll('.theme-card');
-            let selectedCount = 0;
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.querySelectorAll('.nav-link');
 
-            checkboxes.forEach((checkbox, index) => {
-                if (checkbox.checked) {
-                    selectedCount++;
-                    cards[index].classList.add('selected');
-                } else {
-                    cards[index].classList.remove('selected');
-                }
-            });
+        // Hero Slider Functionality
+        const slides = document.querySelectorAll('.slide');
+        const indicators = document.querySelectorAll('.indicator');
+        const prevBtn = document.querySelector('.slider-arrow.prev');
+        const nextBtn = document.querySelector('.slider-arrow.next');
+        let currentSlide = 0;
+        let autoPlayInterval;
 
-            document.getElementById('selected-count').textContent = selectedCount;
-            document.getElementById('compare-btn').disabled = selectedCount < 2;
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+            
+            if (index >= slides.length) currentSlide = 0;
+            if (index < 0) currentSlide = slides.length - 1;
+            
+            slides[currentSlide].classList.add('active');
+            indicators[currentSlide].classList.add('active');
         }
 
-        function selectAll() {
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            checkboxes.forEach(checkbox => {
-                checkbox.checked = true;
-            });
-            updateSelection();
+        function nextSlide() {
+            currentSlide++;
+            if (currentSlide >= slides.length) currentSlide = 0;
+            showSlide(currentSlide);
         }
 
-        function clearSelection() {
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            checkboxes.forEach(checkbox => {
-                checkbox.checked = false;
-            });
-            updateSelection();
+        function prevSlide() {
+            currentSlide--;
+            if (currentSlide < 0) currentSlide = slides.length - 1;
+            showSlide(currentSlide);
         }
 
-        function compareThemes() {
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-            if (checkboxes.length < 2) {
-                alert('Please select at least 2 themes to compare');
-                return;
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(nextSlide, 5000);
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+
+        // Event Listeners for Slider
+        nextBtn.addEventListener('click', () => {
+            stopAutoPlay();
+            nextSlide();
+            startAutoPlay();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            stopAutoPlay();
+            prevSlide();
+            startAutoPlay();
+        });
+
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                stopAutoPlay();
+                currentSlide = index;
+                showSlide(currentSlide);
+                startAutoPlay();
+            });
+        });
+
+        // Touch/Swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        const sliderContainer = document.querySelector('.slider-container');
+
+        sliderContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        sliderContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                stopAutoPlay();
+                nextSlide();
+                startAutoPlay();
             }
-
-            const selectedThemes = Array.from(checkboxes).map(cb => {
-                const themeCard = cb.closest('.theme-card');
-                return {
-                    name: cb.nextElementSibling.textContent,
-                    url: themeCard.dataset.url
-                };
-            });
-
-            // Open selected themes in new tabs for comparison
-            selectedThemes.forEach(theme => {
-                window.open(theme.url, '_blank');
-            });
+            if (touchEndX > touchStartX + 50) {
+                stopAutoPlay();
+                prevSlide();
+                startAutoPlay();
+            }
         }
 
-        // Add click handler to cards for easier selection
-        document.querySelectorAll('.theme-card').forEach(card => {
-            card.addEventListener('click', (e) => {
-                // Don't toggle if clicking on link or checkbox
-                if (e.target.tagName === 'A' || e.target.tagName === 'INPUT' || e.target.tagName === 'LABEL') {
-                    return;
+        // Start autoplay
+        startAutoPlay();
+
+        // Pause autoplay when user is interacting
+        sliderContainer.addEventListener('mouseenter', stopAutoPlay);
+        sliderContainer.addEventListener('mouseleave', startAutoPlay);
+
+        // Mobile Menu Functionality
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    const navHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = targetSection.offsetTop - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
                 }
-                const checkbox = card.querySelector('input[type="checkbox"]');
-                checkbox.checked = !checkbox.checked;
-                updateSelection();
             });
         });
     </script>
